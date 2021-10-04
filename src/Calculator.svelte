@@ -81,8 +81,7 @@
 	if (screenKey) {
 		screenKey.click();
 	}
-    }
-}/>
+}} />
 
 <div class="container">
     <div class="display-window">
@@ -90,7 +89,7 @@
     </div>
 
     <div class="keyboard">
-        <button class="function" on:click={allClear}>AC</button>
+        <button data-key="Escape" class="function" on:click={allClear}>AC</button>
         <button class="blank"></button>
         <button class="blank"></button>
         <button data-key="/" class="function" on:click={() => handleOperator('/')}>/</button>
@@ -103,7 +102,7 @@
         <button data-key="4" on:click={() => handleDigit('4')}>4</button>
         <button data-key="5" on:click={() => handleDigit('5')}>5</button>
         <button data-key="6" on:click={() => handleDigit('6')}>6</button>
-        <button data-key="-"class="function" on:click={() => handleOperator('-')}>-</button>
+        <button data-key="-" class="function" on:click={() => handleOperator('-')}>-</button>
 
         <button data-key="1" on:click={() => handleDigit('1')}>1</button>
         <button data-key="2" on:click={() => handleDigit('2')}>2</button>
@@ -160,7 +159,7 @@
         border: none;
     }
 
-    button:active {
+    button:active, button.activated {
       opacity: 0.5;
     }
 
