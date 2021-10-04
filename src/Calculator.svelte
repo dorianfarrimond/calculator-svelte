@@ -75,6 +75,15 @@
 	}
 </script>
 
+<svelte:window on:keydown={(e) => {
+	const dataKey = e.key === 'Enter' ? '=' : e.key;
+	const screenKey = document.querySelector(`[data-key="${dataKey}"]`)
+	if (screenKey) {
+		screenKey.click();
+	}
+    }
+}/>
+
 <div class="container">
     <div class="display-window">
         <input type="text" value={mode === EDITMODES.VALUE ? value : operand} />
@@ -82,28 +91,28 @@
 
     <div class="keyboard">
         <button class="function" on:click={allClear}>AC</button>
-        <button class="blank" />
-        <button class="blank" />
-        <button class="function" on:click={() => handleOperator('/')}>/</button>
+        <button class="blank"></button>
+        <button class="blank"></button>
+        <button data-key="/" class="function" on:click={() => handleOperator('/')}>/</button>
 
-        <button on:click={() => handleDigit('7')}>7</button>
-        <button on:click={() => handleDigit('8')}>8</button>
-        <button on:click={() => handleDigit('9')}>9</button>
-        <button class="function" on:click={() => handleOperator('*')}>*</button>
+        <button data-key="7" on:click={() => handleDigit('7')}>7</button>
+        <button data-key="8" on:click={() => handleDigit('8')}>8</button>
+        <button data-key="9" on:click={() => handleDigit('9')}>9</button>
+        <button data-key="*" class="function" on:click={() => handleOperator('*')}>*</button>
 
-        <button on:click={() => handleDigit('4')}>4</button>
-        <button on:click={() => handleDigit('5')}>5</button>
-        <button on:click={() => handleDigit('6')}>6</button>
-        <button class="function" on:click={() => handleOperator('-')}>-</button>
+        <button data-key="4" on:click={() => handleDigit('4')}>4</button>
+        <button data-key="5" on:click={() => handleDigit('5')}>5</button>
+        <button data-key="6" on:click={() => handleDigit('6')}>6</button>
+        <button data-key="-"class="function" on:click={() => handleOperator('-')}>-</button>
 
-        <button on:click={() => handleDigit('1')}>1</button>
-        <button on:click={() => handleDigit('2')}>2</button>
-        <button on:click={() => handleDigit('3')}>3</button>
-        <button class="function" on:click={() => handleOperator('+')}>+</button>
+        <button data-key="1" on:click={() => handleDigit('1')}>1</button>
+        <button data-key="2" on:click={() => handleDigit('2')}>2</button>
+        <button data-key="3" on:click={() => handleDigit('3')}>3</button>
+        <button data-key="+" class="function" on:click={() => handleOperator('+')}>+</button>
 
-        <button on:click={() => handleDigit('0')}>0</button>
-        <button on:click={handleDecimalPoint}>.</button>
-        <button class="equals" on:click={handleEquals}>=</button>
+        <button data-key="0" on:click={() => handleDigit('0')}>0</button>
+        <button data-key="." on:click={handleDecimalPoint}>.</button>
+        <button data-key="=" class="equals" on:click={handleEquals}>=</button>
     </div>
 </div>
 
