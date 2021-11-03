@@ -1,5 +1,5 @@
 <script>
-	import calculator from './services/calculator';
+	import calculator from '../services/calculator';
 	import Keyboard from './Keyboard.svelte';
 
 	const TYPINGMODES = {

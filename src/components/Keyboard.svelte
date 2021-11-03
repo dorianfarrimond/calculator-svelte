@@ -38,7 +38,7 @@
 	setTimeout(() => {activeKey = ''}, 100);
 }} />
 
-<div class="keyboard">
+<div class="keyboard" role="group">
     <Button key="AC" keyType="function" on:click={allClear} />
     <Button keyType="blank" />
     <Button keyType="blank" />

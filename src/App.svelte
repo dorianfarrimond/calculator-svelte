@@ -1,5 +1,5 @@
 <script>
-	import Calculator from './Calculator.svelte';
+	import Calculator from './components/Calculator.svelte';
 </script>
 
 <main>
